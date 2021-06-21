@@ -1,0 +1,6 @@
+node("docker_builder") {
+    docker.image('maven:3-openjdk-11-slim')
+    .inside("-e MAVEN_OPTS='-Xms1024m -Xmx2560m -XX:MaxPermSize=1024m -XX:+TieredCompilation -XX:TieredStopAtLevel=1' -e _JAVA_OPTIONS='-Duser.home=${HOME}' -v $HOME:$HOME") {
+	sh 'mvn clean verify'
+    }
+}
