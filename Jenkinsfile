@@ -5,7 +5,7 @@ pipeline {
             agent {
                 docker {
                     image 'maven:3-openjdk-11'
-                    label "docker-agent"
+                    label "docker_builder"
                 }
             }
             steps {
